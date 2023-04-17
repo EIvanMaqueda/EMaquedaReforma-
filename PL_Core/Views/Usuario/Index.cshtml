@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-success table-striped">
+    <tr>
+        <td>Nombre</td>
+        <td><input type="text" id="txtNombre" placeholder="Nombre" onblur="Validar('txtNombre','lblNombre')"></td>
+        <td><label id="lblNombre" class="alert-danger"></label></td>
+    </tr>
+    <tr>
+        <td>Direccion</td>
+        <td><input type="text" id="txtDireccion" placeholder="Direccion" onblur="Validar('txtDireccion','lblDireccion')"></td>
+        <td><label id="lblDireccion" class="alert-danger"></label></td>
+    </tr>
+    <tr>
+        <td>Edad</td>
+        <td><input type="text" id="txtEdad" placeholder="Edad" onblur="Validar('txtEdad','lblEdad'),Edad()"></td>
+        <td><label id="lblEdad" class="alert-danger"></label></td>
+    </tr>
+    <tr>
+        <td>Habilidad Principal</td>
+        <td><input type="text" id="txtHabP" placeholder="Habilidad Principal" onblur="Validar('txtHabP','lblHabP')"></td>
+        <td><label id="lblHabP" class="alert-danger"></label></td>
+    </tr>
+    <tr>
+        <td>Habilidad Secundaria</td>
+        <td><input type="text" id="txtHabS" placeholder="Habilidad Secundaria" onblur="Validar('txtHabS','lblHabS')"></td>
+        <td><label id="lblHabS" class="alert-danger"></label></td>
+    </tr>
+    <tr>
+        <td><a class="btn btn-info">Agregar</a></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+@section Scripts{
+
+<script type="text/javascript">
+    function Validar(txt,lbl){
+            let val = document.getElementById(txt).value;
+            let val2 = val.indexOf(" ");
+    if (val=="" ){
+        document.getElementById(lbl).innerHTML="El Campo no puede estar vacio";
+    }
+    
+     else if(val2!=-1){
+        document.getElementById(lbl).innerHTML = "El Campo no puede tener espacios";
+     }
+     else {
+       document.getElementById(lbl).innerHTML = "";
+          }
+
+    }
+   
+    function Edad(){
+        try{
+            let edad = document.getElementById('txtEdad').value;
+            if(edad>10 && edad<90){
+                    document.getElementById('lblEdad').innerHTML="";
+            }else{
+                    document.getElementById('lblEdad').innerHTML = "La edad perimitida esta entre 10 y 89 años";
+            }
+        }
+            catch (err) {
+           document.getElementById('lblEdad').innerHTML = "Solo se aceptan numeros";
+            }
+        
+    }
+</script>
+}
