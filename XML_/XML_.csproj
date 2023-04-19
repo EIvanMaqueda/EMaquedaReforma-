@@ -51,5 +51,8 @@
   <ItemGroup>
     <Folder Include="archivo\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="sql\EMaquedaReforma.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
